@@ -1,7 +1,8 @@
 import logo from "./logo.svg";
-import "./App.css";
+import "./css/App.css";
+import Hello from "./component/Hello";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -10,8 +11,10 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.
         </p>
       </header>
+      <Hello />
     </div>
   );
-}
+};
 
+// App 이라는 함수를 다른곳에서 import 할 수 있도록 하는 선언문
 export default App;
