@@ -23,7 +23,7 @@ const TodoMain = () => {
   useEffect(saveStorage, [todoList]);
 
   const todoInsert = () => {
-    const newTodoList = [...todoList, { seq: uuid(), todo: todoItem, coplete: false }];
+    const newTodoList = [...todoList, { seq: uuid(), todo: todoItem, coplete: false }]; //uuid seq 만들기
     setTodoList(newTodoList);
   };
 

@@ -15,8 +15,9 @@ const TodoItem = ({ item, todoComplete, todoDelete }) => {
       <div className="delete" onClick={() => onDeleteClick(item.seq)}>
         &times;
       </div>
-      <div className={item.complete ? "content ok" : "content"}>{item.todo}</div>
-      <div className="complete" onClick={() => onCompleteClick(item.seq)}>
+      <div className={item.complete ? "content ok" : "content"} 
+      onClick={() => onCompleteClick(item.seq)}>{item.todo}</div>
+      <div className="complete" >
         &#x2713;
       </div>
     </div>
