@@ -12,15 +12,8 @@ const TodoInput = ({ todoItem, setTodoItem, todoInsert }) => {
 
   return (
     <div className="todoInput">
-      <input
-        placeholder="TODO"
-        value={todoItem}
-        onChange={onChangeHander}
-      />
-      <button
-        disabled={todoItem.length < 2}
-        onClick={onInsertHandler}
-      >
+      <input placeholder="TODO" value={todoItem} onChange={onChangeHander} />
+      <button disabled={todoItem.length < 2} onClick={onInsertHandler}>
         추가
       </button>
     </div>
