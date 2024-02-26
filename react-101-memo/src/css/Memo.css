@@ -6,7 +6,7 @@ div.left {
     gap: 3px;
   }
   ul {
-    list-style: none;
+    list-style-type: none;
     li {
       box-shadow: 2px 2px 2px 2px #ddd;
       margin: 10px 0;

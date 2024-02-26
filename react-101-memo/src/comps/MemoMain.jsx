@@ -11,7 +11,7 @@ import MemoList from "./MemoList";
 // import MemoItem from "./MemoItem";
 
 import MemoInput from "./MemoInput";
-import { useState } from "react";
+import { useState } from "react"; // 상태관리 함수
 
 // 1
 // 추가
@@ -19,12 +19,13 @@ import moment from "moment";
 
 const MemoMain = () => {
   //1
-  // 실제입력하고 리스트 추가하기
+  // 실제입력하고 리스트 추가하기   // useState 함수를 통해 memo라는 상태와
+  //                                  그 상태를 변경할 수 있는 setMemo라는 함수를 선언
   const [memo, setMemo] = useState({
     // 메모 1개를 처리할 state
     m_seq: 0,
-    // 7 칼럼생성
-    m_id: "UUID",
+    // // 7 칼럼생성
+    // m_id: "UUID",
     m_author: "rito1205@naver.com",
     m_date: moment().format("YYYY-MM-DD"),
     m_time: moment().format("HH:mm:ss"),
@@ -35,7 +36,7 @@ const MemoMain = () => {
 
   // 1
   // 메모 리스트를 처리할 state
-  const [memoList, setMemoList] = useState([]);
+  const [memoList, setMemoList] = useState([]); //메모들이 들어갈 빈배열 생성, 이 비어있는 배열을 리스트에 줌
 
   // 2
   const memoInsert = () => {
@@ -59,7 +60,11 @@ const MemoMain = () => {
       </div>
       <div className={styles.aside}>
         <MemoMainRight>
-          <MemoInput memo={memo} setMemo={setMemo} memoInsert={memoInsert} />
+          <MemoInput
+            memo={memo}
+            setMemo={setMemo}
+            memoInsert={memoInsert}
+          />
         </MemoMainRight>
       </div>
     </div>
