@@ -1,6 +1,7 @@
 import styles from "@/css/Notice.input.module.css";
 // api/notice.js 에 선언된 createNotice 함수를 사용하겠다
 import { createNotice } from "@/app/api/notice";
+import { redirect } from "next/navigation"; // next.navigation 자동완성 설명
 /*
 공지사항 작성하기
 작성자, 제목, 내용, 중요도
@@ -21,10 +22,14 @@ export default () => {
       m_flag: formData.get("m_flag"),
       m_subject: formData.get("m_subject"),
       m_content: formData.get("m_content"),
+      m_date: "2024-02-28",
+      m_time: "15:16:00",
     };
     // notice 함수에도 async 를 붙여야 await 사용가능
     // app 안에 ""api 폴더"" 를 만들고 js생성
-    await createNotice(noticeData); //함수에 데이터전달
+    await createNotice(noticeData); //api 에서 만든 함수에 데이터전달
+    // 데이터를 받아서 생성하는코드가 들어있음
+    redirect("/notice"); // 입력후 공지사항 기본화면으로
   };
 
   return (
