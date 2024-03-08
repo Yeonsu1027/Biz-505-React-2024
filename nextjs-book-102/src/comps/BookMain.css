@@ -1,19 +1,33 @@
-section.book.main {
+.book.main {
   display: flex;
-  flex-direction: column;
+  gap: 3px;
   width: 80%;
-  margin: 10px auto;
-  article.body {
-    display: flex;
+  margin: 30px auto;
+  aside {
+    /* 전체화면에 50%만큼 픽셀로 고정하라? 
+    calc 는 전체의 퍼센트를 픽셀로 변환한다
+    */
+    /* 화면 폭의 50% 에 해당하는 px 값을 계싼하여 width 로 설정하기
+    overflow : hidden 이 설정에서 보여지는 content 를 제한하기 위한 설정 */
+    width: calc(50%);
+    padding: 1rem;
+    background-color: #efefef;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px 2px #dfdfdf;
   }
   aside.list {
-    flex: 1;
-    padding: 5px;
-    background-color: #eee;
+    display: flex;
+    flex-direction: column;
+
     ul {
       list-style-type: none;
       li {
-        padding: 5px;
+        padding: 8px;
+        /* text(content) 에 보여지는 모양을 정리 */
+        white-space: nowrap;
+        overflow: hidden;
+        /* 화면에 글자 넘어가면 ... 으로 표시 ellipsis */
+        text-overflow: ellipsis;
         &:nth-of-type(odd) {
           background-color: #ddd;
         }
@@ -44,6 +58,17 @@ div.book.search {
     &:hover {
       background-color: #ddd;
       cursor: pointer;
+    }
+  }
+}
+/* 800px 보다 작아지면 */
+@media (max-width: 800px) {
+  .book.main {
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    aside {
+      width: calc(90%);
     }
   }
 }
