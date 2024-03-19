@@ -1,0 +1,16 @@
+.body {
+  list-style: none;
+  width: 80%;
+  margin: 5px auto;
+}
+
+.item {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  padding: 8px;
+}
+
+.item strong,
+.item span {
+  flex: 1;
+}

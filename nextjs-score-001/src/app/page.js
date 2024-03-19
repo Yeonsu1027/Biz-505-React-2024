@@ -20,6 +20,7 @@ export default function Home() {
   // -------- 디테일 만들어보자 -------
   const [studentDetail, setStudentDetail] = useState([]);
   // ------------------------------------------------------
+  const [student, setStudent] = useState(null);
 
   useEffect(() => {
     const stdFetch = async () => {
@@ -34,29 +35,37 @@ export default function Home() {
 
   useEffect(() => {
     const scoreFetch = async () => {
-      const result = await findByStNum("S0010"); // score.js 에서 만든 점수가져오는 함수(학번)
+      // ?? 앞에있는값이 null 이면 뒤에 값을 채워넣어라
+      const result = await findByStNum(student?.st_num ?? "S0001"); // score.js 에서 만든 점수가져오는 함수(학번)
       setScoreList([...result]);
     };
     scoreFetch();
-  }, []);
+  }, [student]); // student 가 변하면 반응해라
 
+  // -----------------------------------------
   // 디테일 만들어보자~ 특정한 학생의 학생정보 가져오기..
   useEffect(() => {
     const stdDetailFetch = async () => {
-      const result = await stdetail("S0010");
+      const result = await stdetail(student?.st_num ?? "S0001");
       setStudentDetail([...result]);
     };
     stdDetailFetch();
-  }, []);
+  }, [student]);
   // -------------------------------------------
 
   return (
     <main className={styles.main}>
       <section className={styles.list}>
-        <StudentList studentList={studentList} />
+        <StudentList
+          studentList={studentList}
+          setStudent={setStudent}
+        />
       </section>
       <section className={styles.detail}>
-        <StudentDetail studentDetail={studentDetail}>
+        <StudentDetail
+          studentDetail={studentDetail}
+          student={student}
+        >
           <ScoreList scoreList={scoreList} />
         </StudentDetail>
       </section>
