@@ -1,0 +1,85 @@
+section {
+  height: 90vh;
+}
+h1 {
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  border-bottom: 3px solid skyblue;
+
+  background-color: skyblue;
+  margin-bottom: 5px;
+}
+ul.stul {
+  /* border: 1pxs solid skyblue; */
+  margin-top: 15px;
+  /* height: 700px; */
+  height: 80vh;
+  overflow: auto;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  li {
+    display: flex;
+    p.rigth {
+      padding-right: 10px;
+      width: 20px;
+      border-right: 1px solid #ccc;
+    }
+    p {
+      margin: 5px;
+    }
+    /* margin: 5px; */
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    width: 90%;
+    /* text-align: center; */
+    transition: 0.6s;
+    &:hover {
+      background-color: skyblue;
+      cursor: pointer;
+      opacity: 0.6;
+    }
+  }
+}
+/* 안됨.. */
+.stul::-webkit-scrollbar {
+  background-color: rgb(229, 248, 255);
+}
+.stul::-webkit-scrollbar-thumb {
+  background-color: white;
+}
+
+ul.scul {
+  margin-top: 10px;
+  /* margin: auto; */
+  text-align: center;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  li {
+    width: 90%;
+    margin: 10px;
+    border: 2px solid skyblue;
+    padding: 10px;
+    transition: 0.6s;
+    &:hover {
+      cursor: pointer;
+      opacity: 0.6;
+      background-color: skyblue;
+    }
+  }
+}
+
+ul.deul {
+  border: 2px solid skyblue;
+  margin: 20px;
+  list-style: none;
+  /* text-align: center; */
+  li {
+    margin: 5px;
+    border-bottom: 1px solid #ccc;
+  }
+}
