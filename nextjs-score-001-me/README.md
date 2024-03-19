@@ -1,4 +1,4 @@
-# React NextJS, Prisma 프로젝트
+# React NexjtJs, Prisma 프로젝트
 
 - 프로젝트 폴더에서 다음 실행
 
@@ -13,8 +13,8 @@ npm install @prisma/client
 npx prisma init --datasource-provider mysql
 ```
 
-- 기존에 DBMS 의 Scheme 를 import 하는 명령
-- `주의` : schema.prisma 파일에 model 정보가 있다면 새로운 import 를 하면서 기존 model 이 삭제될수있음
+- 기존에 DBMS의 Scheme 를 import 하는 명령
+- `주의` : shema.prisma 파일에 model 정보가 있다면 새로운 import 를 하면서 기존 model 이 삭제될 수 있음.
 
 ```bash
 npx prisma db pull
@@ -30,6 +30,8 @@ npx prisma db push
 
 - 만약 model 코드를 변경했다면
 - `주의` : 기존 DBMS 에 Data 가 있는경우 데이터가 삭제됨
+
+- migrate : 테이블 변경시 업그레이드 - 드롭 후 생성
 
 ```bash
 npx prisma migrate -dev
@@ -47,7 +49,7 @@ npx prisma generate
 - `clone` 을 한 후에는 프로젝트를 다시 설정해야 한다
 
 ```.env
-DATABASE_URL="mysql://USERNAME:PASSWORD@localhost:3306/scoreDB"
+DATABASE_URL="mysql://USERNAME:PASSWORDlocalhost:3306/scoreDB"
 ```
 
 - 컴파일하기

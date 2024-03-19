@@ -2,10 +2,13 @@
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
-export const selectAll = async () => {
+export const findByStNum = async (st_num) => {
   try {
-    const result = await prisma.tbl_student.findMany();
-    console.log("RESULT", result);
+    const result = await prisma.tbl_score.findMany({
+      where: {
+        s_stnum: st_num,
+      },
+    });
     prisma.$disconnect;
     return result;
   } catch (error) {

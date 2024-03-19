@@ -1,22 +1,28 @@
-import "../../css/stlist.css";
-import ScoreList from "./ScoreList";
-
+import css from "@/css/student.list.module.css";
 const StudentList = ({ studentList, setStudent }) => {
-  const viewList = studentList.map((item) => {
-    return (
-      <li key={item.st_num} onClick={() => setStudent(item)}>
-        <p className="rigth">{item.st_num}</p>
-        <p>{item.st_name}</p>
-        <p>{item.st_dept}</p>
-      </li>
-    );
-  });
+  console.log("STD", studentList);
+  const viewList = studentList.map((item) => (
+    <li
+      key={item.st_num}
+      className={css.item}
+      onClick={() => setStudent(item)}
+    >
+      <strong>{item.st_num}</strong>
+      <strong>{item.st_name}</strong>
+      <span>{item.st_dept}</span>
+    </li>
+  ));
   return (
     <>
-      <h1>학생리스트</h1>
-      <ul className="stul">{viewList}</ul>
+      <ul className={css.body}>
+        <li className={`${css.item} ${css.title}`}>
+          <strong>학번</strong>
+          <strong>이름</strong>
+          <span>학과</span>
+        </li>
+        {viewList}
+      </ul>
     </>
   );
 };
-
 export default StudentList;
