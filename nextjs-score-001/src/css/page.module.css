@@ -8,7 +8,7 @@
   flex: 1;
   margin: 5px;
   padding: 8px;
-  border: 1px solid blue;
+  border: 3px solid skyblue;
 }
 
 .list {
@@ -26,7 +26,7 @@
 }
 
 .list:hover::scrollbar-thumb {
-  background-color: green;
+  background-color: skyblue;
 }
 
 .list::-webkit-scrollbar {
@@ -39,7 +39,7 @@
 } */
 
 .list:hover::-webkit-scrollbar-thumb {
-  background-color: green;
+  background-color: skyblue;
 }
 
 /* .list::-ms-scrollbar {
