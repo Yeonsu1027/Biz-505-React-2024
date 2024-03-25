@@ -1,0 +1,62 @@
+/* .section {
+  background-color: blue;
+} */
+
+.input {
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid #bbb;
+}
+.input:focus {
+  background-color: #eee;
+}
+.button {
+  padding: 10px;
+  width: 100px;
+  background-color: rgb(96, 165, 255);
+  border-radius: 5px;
+  border: none;
+  color: white;
+  margin: 10px;
+  margin-left: 10px;
+}
+.button:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+.listdiv {
+  margin-top: 30px;
+}
+.listdiv h3 {
+  margin-bottom: 10px;
+}
+.list {
+  width: 100%;
+  border-top: 2px solid #bbb;
+  border-bottom: 2px solid #bbb;
+}
+
+.name {
+  display: flex;
+  background-color: #ddd;
+}
+.name li {
+  flex: 1;
+  text-align: center;
+  list-style: none;
+  padding: 10px;
+}
+
+.plist {
+  display: flex;
+  text-align: center;
+  list-style: none;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+.plist li {
+  flex: 1;
+  text-align: center;
+}
