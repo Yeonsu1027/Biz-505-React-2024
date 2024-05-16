@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 export const findClearData = async (c_id, c_level) => {
   try {
-    const result = await prisma.tbl_clear.findMany({
+    const result = await prisma.tbl_clear.findUnique({
       where: { c_id: c_id, c_level: c_level },
     });
     prisma.$disconnect;
