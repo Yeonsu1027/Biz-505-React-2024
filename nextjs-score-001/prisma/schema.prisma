@@ -7,33 +7,74 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model tbl_score {
-  s_stnum   String @db.VarChar(5)
-  s_subject String @db.VarChar(10)
-  s_score   Int
-
-  @@id([s_stnum, s_subject])
+// 회원정보 테이블
+model Member {
+  m_id   String   @id @db.VarChar(255)
+  m_pw   String   @db.VarChar(255)
+  m_nick String?  @db.VarChar(255)
 }
 
-model tbl_student {
-  st_num   String  @id @unique(map: "st_num") @db.VarChar(5)
-  st_name  String  @db.VarChar(10)
-  st_dept  String? @db.VarChar(20)
-  st_grade String? @db.VarChar(1)
-  st_tel   String? @db.VarChar(13)
-  st_addr  String? @db.VarChar(125)
+// 5x5 정답테이블
+model Nemo {
+  n_num      Int
+  n_row_num  Int
+  n_block1   Int
+  n_block2   Int
+  n_block3   Int
+  n_block4   Int
+  n_block5   Int
+  n_block6   Int
+  n_block7   Int
+  n_block8   Int
+  n_block9   Int
+  n_block10  Int
+  n_block11  Int
+  n_block12  Int
+  n_block13  Int
+  n_block14  Int
+  n_block15  Int
+
+  @@id([n_num, n_row_num])
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model tbl_temp_score {
-  s_stnum String? @db.VarChar(5)
-  s_kor   String? @db.VarChar(10)
-  s_eng   String? @db.VarChar(10)
-  s_math  String? @db.VarChar(10)
-  s_music String? @db.VarChar(10)
-  s_art   String? @db.VarChar(10)
-  s_sw    String? @db.VarChar(10)
-  s_db    String? @db.VarChar(10)
+// 유저의 플레이정보 (+ 회원아이디)
+model NemoPlay {
+  p_id      String @db.VarChar(255)
+  p_num     Int
+  p_row_num Int
+  p_block1  Int
+  p_block2  Int
+  p_block3  Int
+  p_block4  Int
+  p_block5  Int
+  p_block6  Int
+  p_block7  Int
+  p_block8  Int
+  p_block9  Int
+  p_block10 Int
+  p_block11 Int
+  p_block12 Int
+  p_block13 Int
+  p_block14 Int
+  p_block15 Int
 
-  @@ignore
+  @@id([p_id, p_num, p_row_num])
+}
+
+// 클리어정보
+model Clear {
+  c_id    String @db.VarChar(255)
+  c_level Int
+  c_clear Int
+
+  @@id([c_id, c_level])
+}
+
+// 대화정보
+model Speech {
+  s_num     Int
+  s_speaker String @db.VarChar(1)
+  s_message String @db.VarChar(100)
+
+  @@id([s_num, s_speaker, s_message])
 }
