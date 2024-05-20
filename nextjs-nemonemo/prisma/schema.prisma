@@ -131,11 +131,10 @@ model tbl_nemo_play {
   @@id([p_id, p_num, p_row_num])
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model tbl_speech {
-  s_num     Int?
-  s_speaker String? @db.VarChar(1)
-  s_message String? @db.VarChar(100)
+  s_num     Int    // 선택적 필드에서 필수 필드로 변경
+  s_speaker String
+  s_message String
 
-   @@id([s_num, s_speaker, s_message ])
+  @@id([s_num, s_speaker, s_message])
 }
