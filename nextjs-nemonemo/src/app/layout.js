@@ -15,13 +15,13 @@ export default function RootLayout({ children }) {
           <ul>
             <li>홈</li>
             <li>
-              <Link href="/라우터주소/폴더이름">회원가입</Link>
+              <Link href="/user/join">회원가입</Link>
             </li>
             <li>
-              <Link href="/라우터주소/폴더이름">로그인</Link>
+              <Link href="/user/login">로그인</Link>
             </li>
             <li>
-              <Link href="/라우터주소/폴더이름">로그아웃</Link>
+              <Link href="">로그아웃</Link>
             </li>
           </ul>
         </nav>

@@ -106,7 +106,7 @@ body {
   background-color: blue;
 }
 #ALL_DELETE {
-  background-image: url("../img/eraser_icon.png");
+  background-image: url("../../public/img/eraser_icon.png");
   background-color: white;
   background-position: center;
   width: 96px;

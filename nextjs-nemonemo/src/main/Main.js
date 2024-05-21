@@ -235,6 +235,12 @@ export default function Main() {
                 src="/img/complete_img.png"
               />
             </div>
+            <section className="ex-mark hidden" id="LEVEL5">
+              <img
+                className="YS_picture next_level"
+                src="img/ex-mark.png"
+              />
+            </section>
           </div>
         )}
 
