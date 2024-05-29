@@ -1,12 +1,19 @@
 import { playDataCheck } from "@/app/api/nemo_play";
+import { compareNemoData } from "@/app/api/nemo";
+
 import { redirect } from "next/navigation";
 import "@/css/game.css";
+
 const first = () => {
+  // 정답확인용
+  const checkCorrect = async (formData) => {
+    "use server";
+    await compareNemoData(formData);
+  };
+
   //-- 게임정보생성
   const gameaction = async (formData) => {
     "use server";
-
-    // 난이도별로 작성필요
     const game1Data = {
       p_id: "11", // 문자열을 정수로 변환
       p_num: parseInt(formData.get("p_num"), 10), // 문자열을 정수로 변환
@@ -16,6 +23,36 @@ const first = () => {
       p_block3: formData.get("p_block3") === "on" ? 1 : 0,
       p_block4: formData.get("p_block4") === "on" ? 1 : 0,
       p_block5: formData.get("p_block5") === "on" ? 1 : 0,
+      ...(formData.get("p_block6") !== null && {
+        p_block6: formData.get("p_block6") === "on" ? 1 : 0,
+      }),
+      ...(formData.get("p_block7") !== null && {
+        p_block7: formData.get("p_block7") === "on" ? 1 : 0,
+      }),
+      ...(formData.get("p_block8") !== null && {
+        p_block8: formData.get("p_block8") === "on" ? 1 : 0,
+      }),
+      ...(formData.get("p_block9") !== null && {
+        p_block9: formData.get("p_block9") === "on" ? 1 : 0,
+      }),
+      ...(formData.get("p_block10") !== null && {
+        p_block10: formData.get("p_block10") === "on" ? 1 : 0,
+      }),
+      ...(formData.get("p_block11") !== null && {
+        p_block11: formData.get("p_block11") === "on" ? 1 : 0,
+      }),
+      ...(formData.get("p_block12") !== null && {
+        p_block12: formData.get("p_block12") === "on" ? 1 : 0,
+      }),
+      ...(formData.get("p_block13") !== null && {
+        p_block13: formData.get("p_block13") === "on" ? 1 : 0,
+      }),
+      ...(formData.get("p_block14") !== null && {
+        p_block14: formData.get("p_block14") === "on" ? 1 : 0,
+      }),
+      ...(formData.get("p_block15") !== null && {
+        p_block15: formData.get("p_block15") === "on" ? 1 : 0,
+      }),
     };
 
     // await createPlayData(game1Data);
@@ -113,7 +150,7 @@ const first = () => {
         </div>
         <div id="lives">목숨: </div>
         <div class="clear">
-          <form>
+          <form method="POST" action={checkCorrect}>
             <input name="p_id" value="1" hidden="true" />
             <input name="p_num" value="1" hidden="true" />
             <button id="clear">정답확인</button>
